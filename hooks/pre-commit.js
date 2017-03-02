@@ -1,8 +1,4 @@
-#!/usr/bin/env node
-
-// GRUNT-GITHOOKS START
 var exec = require('child_process').exec;
-var sh = require('execSync').run;
 
 exec('git diff --cached --quiet', function (err, stdout, stderr) {
 
@@ -10,23 +6,23 @@ exec('git diff --cached --quiet', function (err, stdout, stderr) {
  // i.e. what you would be committing if you ran "git commit" without "-a" option.
  if (err) {
 
-     // stash unstaged changes - only test what's being committed
-     sh('git stash --keep-index --quiet');
+ // stash unstaged changes - only test what's being committed
+ exec('git stash --keep-index --quiet');
 
-     exec('grunt {{task}}', function (err, stdout, stderr) {
-         console.log(stdout);
+ exec('grunt {{task}}', function (err, stdout, stderr) {
 
-         // restore stashed changes
-         sh('git stash pop --quiet');
+ console.log(stdout);
 
-         var exitCode = 0;
-         if (err) {
-             console.log(stderr);
-             exitCode = -1;
-         }
-         process.exit(exitCode);
-     });
+ // restore stashed changes
+ //exec('git stash pop --quiet');
+
+ var exitCode = 0;
+ if (err) {
+ console.log(stderr);
+ exitCode = -1;
+ }
+ process.exit(exitCode);
+ });
  }
 
 });
-// GRUNT-GITHOOKS END
