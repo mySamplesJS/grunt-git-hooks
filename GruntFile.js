@@ -18,11 +18,14 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		githooks: {
-		    all: {
-		      'pre-commit': 'eslint'
-		    }
-		},
+        githooks: {
+            all: {
+                options: {
+                    template: 'hooks/pre-commit.js'
+                },
+                'pre-commit': 'eslint'
+            }
+        },
         browserSync: {
             bsFiles: {
                 src : ['./build/*.html','./build/css/**/*.css']

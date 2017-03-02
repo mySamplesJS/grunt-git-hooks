@@ -11,6 +11,7 @@
     "url": "git@bitbucket.org:secondnetwork/grunt-starter-kit.git"
   },
   "devDependencies": {
+    "execSync": "^1.0.2",
     "grunt": "^0.4.5",
     "grunt-browser-sync": "latest",
     "grunt-contrib-concat": "latest",
