@@ -3,10 +3,11 @@ var request = require('request');
 module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks("grunt-contrib-eslint");
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-imageoptim');
 
     // show elapsed time at the end
@@ -19,8 +20,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		githooks: {
 		    all: {
-		      // Will run the jshint and test:unit tasks at every commit
-		      'pre-commit': 'concat uglify'
+		      'pre-commit': 'eslint'
 		    }
 		},
         browserSync: {
@@ -33,6 +33,12 @@ module.exports = function(grunt) {
                     baseDir: "./build"
                 }
             }
+        },
+        eslint: {
+            options: {
+                configFile: 'eslint.json'
+            },
+            target: ["assets/js/*.js"]
         },
         concat: {
 			js: {

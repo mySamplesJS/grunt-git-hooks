@@ -1,6 +1,5 @@
 
 //wow
-        
 wow = new WOW(
         {
           boxClass: 'bb-animate',
@@ -13,10 +12,10 @@ wow.init();
 
 
 (function($) {
-    
-    
+
+
                 var BRUSHED = window.BRUSHED || {};
-        
+
 	// SVG fallback
 	// toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script#update
 	if (!Modernizr.svg) {
@@ -27,8 +26,8 @@ wow.init();
 			}
 		}
 	}
-        
-        
+
+
         var shrinkHeader = 50;
           $(window).scroll(function() {
             var scroll = getCurrentScroll();
@@ -44,16 +43,16 @@ wow.init();
         function getCurrentScroll() {
             return window.pageYOffset;
             }
-     
-        
-    
+
+
+
         jQuery(".boxer").boxer();
         //Mobil Nav
 //        $('.flexpanel').flexpanel({
 //        animation: 'slide',
 //        direction: 'right'
 //        });
-//        
+//
 //        $(window).scroll(function () {
 //            var scrollTop = $(window).scrollTop();
 //
@@ -64,19 +63,19 @@ wow.init();
 //                    $('.header').removeClass('color-top');
 //            }
 //        });
-        
+
 
 	var $window_height = $(window).height();
 	var $window_width = $(window).width();
 
 	// Header adjustment
 	function fc_header_adjustment(){
-            
+
 		// Execute
 		fc_execute_header_adjustment();
 
 		$(window).resize(function(){
-			
+
 			fc_execute_header_adjustment();
 		});
 	}
@@ -89,42 +88,42 @@ wow.init();
 		$('.webplate').fadeIn('fast');
 	}
 	// Scroll down
-	function fc_scroll_down(){	
-		$('.scroller').on('click', function(){			
+	function fc_scroll_down(){
+		$('.scroller').on('click', function(){
 			$('.webplate-content').animate({ scrollTop: $window_height }, 1000, 'easeInOutCubic');
 		});
 	}
 	// Screen width value
-	function fc_screen_width(){	
+	function fc_screen_width(){
 		$('.screen-width').text($window_width);
-		$(window).resize(function(){		
+		$(window).resize(function(){
 			$window_width = $(window).width();
 			$('.screen-width').text($window_width);
 		});
 	}
-        
-        
+
+
 /* ==================================================
    Thumbs / Social Effects
 ================================================== */
 
 BRUSHED.utils = function(){
-	
+
 	$('.item-thumbs').bind('touchstart', function(){
 		$(".active").removeClass("active");
       	$(this).addClass('active');
     });
-	
+
 	$('.image-wrap').bind('touchstart', function(){
 		$(".active").removeClass("active");
       	$(this).addClass('active');
     });
-	
+
 	$('#social ul li').bind('touchstart', function(){
 		$(".active").removeClass("active");
       	$(this).addClass('active');
     });
-	
+
 }
 
 /* ==================================================
@@ -133,15 +132,15 @@ BRUSHED.utils = function(){
 
 BRUSHED.accordion = function(){
 	var accordion_trigger = $('.accordion-heading.accordionize');
-	
+
 	accordion_trigger.delegate('.accordion-toggle','click', function(event){
 		if($(this).hasClass('active')){
 			$(this).removeClass('active');
 		   	$(this).addClass('inactive');
 		}
 		else{
-		  	accordion_trigger.find('.active').addClass('inactive');          
-		  	accordion_trigger.find('.active').removeClass('active');   
+		  	accordion_trigger.find('.active').addClass('inactive');
+		  	accordion_trigger.find('.active').removeClass('active');
 		  	$(this).removeClass('inactive');
 		  	$(this).addClass('active');
 	 	}
@@ -155,7 +154,7 @@ BRUSHED.accordion = function(){
 
 BRUSHED.toggle = function(){
 	var accordion_trigger_toggle = $('.accordion-heading.togglize');
-	
+
 	accordion_trigger_toggle.delegate('.accordion-toggle','click', function(event){
 		if($(this).hasClass('active')){
 			$(this).removeClass('active');
@@ -173,7 +172,7 @@ BRUSHED.toggle = function(){
    Tooltip
 ================================================== */
 
-BRUSHED.toolTip = function(){ 
+BRUSHED.toolTip = function(){
     $('a[data-toggle=tooltip]').tooltip();
 }
 
@@ -181,8 +180,8 @@ BRUSHED.toolTip = function(){
 /* ==================================================
 	Init
 ================================================== */
-        
-        
+
+
 	fc_header_adjustment();
 	fc_scroll_down();
 	fc_screen_width();
@@ -190,10 +189,10 @@ BRUSHED.toolTip = function(){
 	BRUSHED.accordion();
 	BRUSHED.toggle();
 	BRUSHED.toolTip();
-        
 
-    
-    
+
+
+
 // Instantiate MixItUp:
 
 $('.portfolioContainer').mixItUp(    {
@@ -203,8 +202,8 @@ animation: {
     easing: 'ease'
 }
 });
-            
-    
+
+
     	//mobile - open lateral menu clicking on the menu icon
 	$('.cd-nav-trigger').on('click', function(event){
 		event.preventDefault();
@@ -221,8 +220,8 @@ animation: {
 			toggleSearch('close');
 			$('.cd-overlay').addClass('is-visible');
 		}
-	});        
-    
+	});
+
             //SlidePushMenus
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ), //das sind alles ID Klassen
 				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
